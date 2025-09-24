@@ -152,17 +152,6 @@ Every page loads quickly, works without JavaScript, and is fully accessible to s
 - [ ] **Community Forum**: Peer-to-peer learning and support
 - [ ] **Multi-language Support**: Spanish, French, and other languages
 
-
-## Contributing
-
-This project was developed as a portfolio piece demonstrating full-stack development skills. For questions or feedback, please open an issue or contact the developer.
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-=======
->>>>>>> b5a68f09b07a20da16e2e1c5ca82eed2a8b77e3c
 ## About Me
 
 Hi! I'm Adi, a passionate developer who believes technology should be accessible to everyone. This project was born from personal experience - watching my grandparents struggle with modern devices and wanting to create a solution that actually works for seniors.
