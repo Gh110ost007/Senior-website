@@ -132,7 +132,6 @@ Every page loads quickly, works without JavaScript, and is fully accessible to s
 - **Cross-Browser**: Tested on Chrome, Firefox, Safari, Edge
   
 
-<<<<<<< HEAD
 ## Development Features
 
 ### Code Quality
