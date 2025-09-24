@@ -5,8 +5,8 @@ class Config:
     """Base configuration"""
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'dev-secret-key-change-in-production'
     ADMIN_USERNAME = os.environ.get('ADMIN_USERNAME') or 'admin'
-    ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD') or 'admin123'
-    ADMIN_TOKEN = os.environ.get('ADMIN_TOKEN') or 'changeme-admin-token'
+    ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD') or 'change-this-password'
+    ADMIN_TOKEN = os.environ.get('ADMIN_TOKEN') or 'change-this-token'
     SITE_URL = os.environ.get('SITE_URL') or 'http://127.0.0.1:5000'
     
     # Database
