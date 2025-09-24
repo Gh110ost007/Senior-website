@@ -69,6 +69,7 @@ This inspired me to create a platform that makes technology learning accessible 
 - **Responsive Design**: Mobile-first CSS with Flexbox/Grid
 - **Accessibility**: ARIA labels, keyboard navigation, screen reader support
 
+<<<<<<< HEAD
 ### Development & Deployment
 - **Docker**: Containerization for consistent deployment
 - **GitHub Actions**: CI/CD pipeline for automated testing
@@ -101,6 +102,8 @@ seniors-website/
 └── instance/            # Database and CSV files
 ```
 
+=======
+>>>>>>> 08a13ffdbe55fc6bffc20fdfcb91a5dfbc54c47f
 ## Quick Start
 
 ### Prerequisites
@@ -170,6 +173,7 @@ Every page loads quickly, works without JavaScript, and is fully accessible to s
 - **Desktop Experience**: Enhanced layout for larger screens
 - **Cross-Browser**: Tested on Chrome, Firefox, Safari, Edge
 
+<<<<<<< HEAD
 ## Current Features (MVP)
 
 ### What's Built Today
@@ -186,6 +190,9 @@ Every page loads quickly, works without JavaScript, and is fully accessible to s
 - **Progress Reports**: Visual analytics showing completion rates per topic
 - **Export Functionality**: CSV downloads for leads, analytics, and user data
 ## Future Roadmap (Startup Vision)
+=======
+## Upcoming Features (In Development)
+>>>>>>> 08a13ffdbe55fc6bffc20fdfcb91a5dfbc54c47f
 
 ### Phase 2 - Enhanced Learning Experience
 - [ ] **Video Tutorials**: Step-by-step video guides for complex topics
@@ -205,6 +212,7 @@ Every page loads quickly, works without JavaScript, and is fully accessible to s
 - [ ] **Community Forum**: Peer-to-peer learning and support
 - [ ] **Multi-language Support**: Spanish, French, and other languages
 
+<<<<<<< HEAD
 ### Deployment Timeline
 - **Q1 2025**: Production deployment on cloud platform
 - **Q2 2025**: Mobile app development begins
@@ -217,6 +225,8 @@ This project was developed as a portfolio piece demonstrating full-stack develop
 ## License
 
 This project is open source and available under the [MIT License](LICENSE).
+=======
+>>>>>>> 08a13ffdbe55fc6bffc20fdfcb91a5dfbc54c47f
 ## About Me
 
 Hi! I'm Adi, a passionate developer who believes technology should be accessible to everyone. This project was born from personal experience - watching my grandparents struggle with modern devices and wanting to create a solution that actually works for seniors.
