@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "what-is-otp",
+    "title": "What is an OTP and why it matters",
+    "excerpt": "Understand one-time passwords, how to use them safely, and common scams.",
+    "date": "2025-01-01"
+  },
+  {
+    "slug": "spot-phishing",
+    "title": "How to spot phishing and stay safe online",
+    "excerpt": "Learn to identify suspicious messages, links, and websites.",
+    "date": "2025-01-02"
+  },
+  {
+    "slug": "tv-streaming-basics",
+    "title": "TV and streaming basics",
+    "excerpt": "A gentle introduction to remotes, inputs, and streaming apps.",
+    "date": "2025-01-03"
+  }
+]

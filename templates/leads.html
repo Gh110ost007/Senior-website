@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Leads</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <div class="container" style="padding: 24px 0;">
+      <h1>Leads</h1>
+      <div class="card" style="overflow-x:auto;">
+        <table style="width:100%; border-collapse: collapse;">
+          <thead>
+            <tr>
+              {% for h in rows[0] %}
+              <th style="text-align:left; padding: 8px; border-bottom:1px solid #e4e6ef;">{{ h }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in rows[1:] %}
+            <tr>
+              {% for c in r %}
+              <td style="padding:8px; border-bottom:1px solid #f0f2f8;">{{ c }}</td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

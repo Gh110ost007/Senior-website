@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="{{ lang|default('en') }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}{{ t.brand }}{% endblock %}</title>
+    {% block meta_desc %}<meta name="description" content="Patient home tutoring for seniors: phones, computers, streaming, email, safety, and more." />{% endblock %}
+    <link rel="canonical" href="{{ canonical_url }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{% block og_title %}{{ t.brand }}{% endblock %}" />
+    <meta property="og:description" content="{% block og_desc %}Patient home tutoring for seniors: phones, computers, streaming, email, safety, and more.{% endblock %}" />
+    <meta property="og:url" content="{{ canonical_url }}" />
+    <meta property="og:image" content="{{ site_url }}/static/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{% block tw_title %}{{ t.brand }}{% endblock %}" />
+    <meta name="twitter:description" content="{% block tw_desc %}Patient home tutoring for seniors: phones, computers, streaming, email, safety, and more.{% endblock %}" />
+    <meta name="twitter:image" content="{{ site_url }}/static/og.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}?v=16" />
+    {% block head_extra %}{% endblock %}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <div class="brand">
+          <span class="logo" aria-hidden="true">📱</span>
+          <a class="brand-text" href="{{ url_for('index', lang=lang) }}">TechEase</a>
+        </div>
+        <nav class="site-nav" aria-label="Main">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+          <ul id="nav-links">
+            <li><a href="{{ url_for('services', lang=lang) }}">{{ t.nav_services }}</a></li>
+            <li><a href="{{ url_for('topics_page', lang=lang) }}">{{ t.nav_topics }}</a></li>
+            <li><a href="{{ url_for('guides_list', lang=lang) }}">{{ t.nav_guides }}</a></li>
+            <li><a href="{{ url_for('pricing_page', lang=lang) }}">{{ t.nav_pricing }}</a></li>
+            <li><a href="{{ url_for('faq_page', lang=lang) }}">{{ t.nav_faq }}</a></li>
+            <li><a href="{{ url_for('testimonials_page', lang=lang) }}">{{ t.nav_testimonials }}</a></li>
+            <li><a href="{{ url_for('contact', lang=lang) }}">{{ t.nav_contact }}</a></li>
+            <li><a href="{{ request.path }}?lang=en">{{ t.lang_en }}</a> | <a href="{{ request.path }}?lang=hi">{{ t.lang_hi }}</a></li>
+          </ul>
+        </nav>
+        <div class="prefs">
+          <button id="toggle-dark" class="btn" aria-pressed="false">Dark mode</button>
+          <button id="increase-font" class="btn" aria-pressed="false" title="Increase font size">Zoom In</button>
+          <button id="decrease-font" class="btn" aria-pressed="false" title="Decrease font size">Zoom Out</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> {{ t.brand }}</p>
+        <nav aria-label="Footer">
+          <a href="{{ url_for('services', lang=lang) }}">{{ t.nav_services }}</a>
+          <a href="{{ url_for('topics_page', lang=lang) }}">{{ t.nav_topics }}</a>
+          <a href="{{ url_for('guides_list', lang=lang) }}">Guides</a>
+          <a href="{{ url_for('pricing_page', lang=lang) }}">Pricing</a>
+          <a href="{{ url_for('faq_page', lang=lang) }}">FAQ</a>
+          <a href="{{ url_for('testimonials_page', lang=lang) }}">Testimonials</a>
+          <a href="{{ url_for('contact', lang=lang) }}">{{ t.footer_book }}</a>
+        </nav>
+      </div>
+    </footer>
+
+    <div id="consent-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+      <div class="inner">
+        <p>We use privacy‑friendly analytics to improve the site. OK?</p>
+        <div>
+          <button id="consent-accept" class="btn btn-primary">Yes</button>
+          <button id="consent-decline" class="btn">No</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}?v=2"></script>
+    <script>
+      (function(){
+        const KEY = 'analytics-consent';
+        const banner = document.getElementById('consent-banner');
+        const accepted = localStorage.getItem(KEY);
+        function loadAnalytics(){
+          if (document.getElementById('plausible')) return;
+          const s = document.createElement('script');
+          s.defer = true; s.id = 'plausible';
+          s.setAttribute('data-domain', 'example.com');
+          s.src = 'https://plausible.io/js/script.js';
+          document.head.appendChild(s);
+        }
+        if (accepted === 'yes') {
+          loadAnalytics();
+        } else if (accepted === 'no') {
+          // do nothing
+        } else {
+          banner.style.display = 'block';
+        }
+        const yes = document.getElementById('consent-accept');
+        const no = document.getElementById('consent-decline');
+        if (yes) yes.addEventListener('click', () => { localStorage.setItem(KEY, 'yes'); banner.style.display = 'none'; loadAnalytics(); });
+        if (no) no.addEventListener('click', () => { localStorage.setItem(KEY, 'no'); banner.style.display = 'none'; });
+      })();
+    </script>
+    {% block body_extra %}{% endblock %}
+  </body>
+</html>

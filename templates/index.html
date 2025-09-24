@@ -1,0 +1,214 @@
+ {% extends 'base.html' %}
+{% block title %}{{ t.brand }} — Home{% endblock %}
+{% block meta_desc %}<meta name="description" content="Friendly, patient tech help for seniors. Home visits + online follow-ups. Learn phones, computers, streaming, email, safety." />{% endblock %}
+{% block og_title %}{{ t.brand }} — Home{% endblock %}
+{% block og_desc %}Friendly, patient tech help for seniors. Home visits + online follow-ups.{% endblock %}
+{% block tw_title %}{{ t.brand }} — Home{% endblock %}
+{% block tw_desc %}Friendly, patient tech help for seniors. Home visits + online follow-ups.{% endblock %}
+{% block content %}
+  <section class="hero fade-in" aria-labelledby="hero-title">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 id="hero-title">{{ t.hero_title }}</h1>
+          <p class="lead">{{ t.hero_lead }}</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="{{ url_for('contact', lang=lang) }}">{{ t.hero_cta_book }}</a>
+            <a class="btn btn-secondary" href="#features">See features</a>
+          </div>
+          <p class="note">{{ t.hero_note }}</p>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-blob"></div>
+          <div class="hero-image">
+            <img src="{{ url_for('static', filename='hero-seniors.jpg') }}" alt="Seniors learning technology together" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="section" aria-labelledby="services-title">
+    <div class="container">
+      <h2 id="services-title">{{ t.how_it_works }}</h2>
+      <div class="services-grid">
+        <div class="service">
+          <div class="service-icon color-1" aria-hidden="true">
+            <i class="fa-solid fa-house-user"></i>
+          </div>
+          <div class="service-contents">
+            <h3>{{ t.offline_visit_title }}</h3>
+            <p>{{ t.offline_visit_desc }}</p>
+          </div>
+        </div>
+        <div class="service">
+          <div class="service-icon color-2" aria-hidden="true">
+            <i class="fa-solid fa-video"></i>
+          </div>
+          <div class="service-contents">
+            <h3>{{ t.online_followup_title }}</h3>
+            <p>{{ t.online_followup_desc }}</p>
+          </div>
+        </div>
+        <div class="service">
+          <div class="service-icon color-3" aria-hidden="true">
+            <i class="fa-solid fa-people-group"></i>
+          </div>
+          <div class="service-contents">
+            <h3>{{ t.family_friendly_title }}</h3>
+            <p>{{ t.family_friendly_desc }}</p>
+          </div>
+        </div>
+        <div class="service">
+          <div class="service-icon color-4" aria-hidden="true">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div class="service-contents">
+            <h3>{{ t.online_safety_title }}</h3>
+            <p>{{ t.online_safety_desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="topics" class="section alt" aria-labelledby="topics-title">
+    <div class="container">
+      <h2 id="topics-title">{{ t.popular_topics }}</h2>
+      <div class="topics-container">
+        {% for topic in topics %}
+        <div class="topic-card topic-card-{{ loop.index }}" data-topic="{{ topic.title|lower|replace(' ', '-') }}">
+          <div class="topic-header topic-header-{{ loop.index }}">
+            <h3 class="topic-title">{{ topic.title }}</h3>
+            <div class="progress-indicator">
+              <span class="progress-text">0/{{ topic['items']|length }} completed</span>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-content">
+            <ul class="lesson-items">
+              {% for item in topic['items'] %}
+              <li class="lesson-item" data-lesson-id="{{ topic.title|lower|replace(' ', '-') }}-{{ loop.index }}">
+                <div class="lesson-content">
+                  <span class="lesson-text">{{ item }}</span>
+                  <button class="complete-btn" data-lesson-id="{{ topic.title|lower|replace(' ', '-') }}-{{ loop.index }}">
+                    <span class="complete-icon">✓</span>
+                    <span class="complete-text">{{ t.mark_complete }}</span>
+                  </button>
+                </div>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="section" aria-labelledby="testimonials-title">
+    <div class="container">
+      <div class="testimonial-header">
+        <div class="testimonial-title-section">
+          <span class="testimonial-caption">Testimonials</span>
+          <h2 id="testimonials-title">Our Customers Feedback</h2>
+        </div>
+        <div class="testimonial-nav">
+          <button class="testimonial-nav-btn prev-btn" onclick="changeTestimonial(-1)">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.854 4.646a.5.5 0 0 1 0 .708L3.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0z"></path>
+              <path fill-rule="evenodd" d="M2.5 8a.5.5 0 0 1 .5-.5h10.5a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path>
+            </svg>
+          </button>
+          <button class="testimonial-nav-btn next-btn" onclick="changeTestimonial(1)">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.793 8l-2.647-2.646a.5.5 0 0 1 0-.708z"></path>
+              <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5H13a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <div class="testimonial-carousel">
+        <div class="testimonial-track" id="testimonialTrack">
+          {% for item in testimonials %}
+          <div class="testimonial-slide{% if loop.first %} active{% endif %}">
+            <div class="testimonial-content">
+              <blockquote class="testimonial-quote">
+                "{{ item.quote }}"
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-photo">
+                  <img src="{{ item.photo or 'https://i.pravatar.cc/80' }}" alt="{{ item.name }}" />
+                </div>
+                <div class="author-info">
+                  <strong class="author-name">{{ item.name }}</strong>
+                  <span class="author-role">{{ item.role or 'Customer' }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section alt" aria-labelledby="pricing-title">
+    <div class="container">
+      <h2 id="pricing-title">{{ t.pricing_title }}</h2>
+      <p>{{ t.pricing_subtitle }}</p>
+      <div class="pricing-cards">
+        {% for tier in pricing %}
+        <div class="pricing-card{% if loop.index == 2 %} active{% endif %}">
+          <div class="card">
+            {% if loop.index == 2 %}
+            <div class="ribbon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"/></svg>
+              <div>best</div>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"/></svg>
+            </div>
+            {% endif %}
+            <h3 class="card-title">{{ tier.name }}</h3>
+            <hr class="first" />
+            <p class="card-price"><span>{{ tier.price[:1] if tier.price and tier.price[0] in ['₹','$'] else '' }}</span>{{ tier.price[1:] if tier.price and tier.price[0] in ['₹','$'] else tier.price }}</p>
+            <ul class="features">
+              {% for f in tier.features %}
+              <li>
+                <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                {{ f }}
+              </li>
+              {% endfor %}
+            </ul>
+            <hr class="second" />
+            <a href="{{ url_for('contact', lang=lang) }}" class="card-btn">{{ t.get_started }}</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section" aria-labelledby="faq-title">
+    <div class="container">
+      <h2 id="faq-title">{{ t.faq_title }}</h2>
+      <div class="accordion">
+        {% for f in faqs %}
+        <div class="accordion-item">
+          <button id="accordion-button-{{ loop.index }}" aria-expanded="false">
+            <span class="accordion-title">{{ f.q }}</span>
+            <span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-content">
+            <p>{{ f.a }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

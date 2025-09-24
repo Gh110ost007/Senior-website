@@ -1,0 +1,50 @@
+[
+  {
+    "title": "TV & Streaming",
+    "items": [
+      "Using your TV remote and input sources",
+      "Netflix, Prime Video, YouTube basics",
+      "Volume, captions, remotes and casting"
+    ]
+  },
+  {
+    "title": "Smartphones (Android & iPhone)",
+    "items": [
+      "Calls, contacts, messages, and photos",
+      "Installing apps, updating safely",
+      "Accessibility: larger text, voice control"
+    ]
+  },
+  {
+    "title": "Email & OTPs",
+    "items": [
+      "Create a Gmail account and sign in",
+      "Find, read, and send emails",
+      "Understand OTP codes and why they matter"
+    ]
+  },
+  {
+    "title": "Social Media",
+    "items": [
+      "Set up WhatsApp, Facebook, Instagram",
+      "Share photos safely with family",
+      "Control privacy and unwanted messages"
+    ]
+  },
+  {
+    "title": "Online Safety",
+    "items": [
+      "Recognize scams and phishing",
+      "Create strong passwords and store them safely",
+      "Protect personal data and avoid fraud"
+    ]
+  },
+  {
+    "title": "Big Picture",
+    "items": [
+      "What is the Internet, social media, and the cloud?",
+      "What is Meta and what is AI?",
+      "Everyday uses that make life easier"
+    ]
+  }
+]

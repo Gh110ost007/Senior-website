@@ -1,0 +1,284 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - {{ t.brand }}{% endblock %}
+
+{% block meta_desc %}Admin dashboard for Senior Help website{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="admin-header">
+    <h1>Admin Dashboard</h1>
+    <div class="admin-actions">
+      <a href="{{ url_for('admin_analytics') }}" class="btn btn-primary">Analytics</a>
+      <a href="{{ url_for('admin_leads') }}?token={{ admin_token }}" class="btn btn-secondary">View Leads</a>
+      <a href="{{ url_for('admin_logout') }}" class="btn btn-outline">Logout</a>
+    </div>
+  </div>
+  
+  <div class="dashboard-grid">
+    <div class="dashboard-card">
+      <h3>Quick Stats</h3>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-label">Total Events</span>
+          <span class="stat-value" id="total-events">Loading...</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Lessons Completed</span>
+          <span class="stat-value" id="lessons-completed">Loading...</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Active Users</span>
+          <span class="stat-value" id="active-users">Loading...</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="dashboard-card">
+      <h3>Recent Activity</h3>
+      <div id="recent-activity">
+        <p>Loading recent activity...</p>
+      </div>
+    </div>
+    
+    <div class="dashboard-card">
+      <h3>Quick Actions</h3>
+      <div class="action-buttons">
+        <a href="{{ url_for('admin_analytics') }}" class="action-btn">
+          <span class="action-icon">📊</span>
+          <span class="action-text">View Analytics</span>
+        </a>
+        <a href="{{ url_for('admin_leads') }}?token={{ admin_token }}" class="action-btn">
+          <span class="action-icon">👥</span>
+          <span class="action-text">Manage Leads</span>
+        </a>
+        <a href="/" class="action-btn">
+          <span class="action-icon">🌐</span>
+          <span class="action-text">View Website</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const ADMIN_TOKEN = '{{ admin_token }}';
+
+async function loadDashboardData() {
+  try {
+    const response = await fetch(`/api/analytics?token=${ADMIN_TOKEN}`);
+    const data = await response.json();
+    
+    // Update quick stats
+    const totalEvents = data.event_counts.reduce((sum, item) => sum + item.count, 0);
+    document.getElementById('total-events').textContent = totalEvents.toLocaleString();
+    
+    const lessonsCompleted = data.progress_stats.reduce((sum, item) => sum + item.completed_count, 0);
+    document.getElementById('lessons-completed').textContent = lessonsCompleted.toLocaleString();
+    
+    // Estimate active users (unique user IDs in events)
+    document.getElementById('active-users').textContent = '~' + Math.max(1, Math.floor(totalEvents / 10));
+    
+    // Update recent activity
+    const recentActivityDiv = document.getElementById('recent-activity');
+    if (data.daily_activity.length > 0) {
+      recentActivityDiv.innerHTML = data.daily_activity.slice(0, 5).map(item => 
+        `<div class="activity-item">
+          <span class="activity-date">${item.date}</span>
+          <span class="activity-count">${item.count} events</span>
+        </div>`
+      ).join('');
+    } else {
+      recentActivityDiv.innerHTML = '<p>No recent activity</p>';
+    }
+    
+  } catch (error) {
+    console.error('Error loading dashboard data:', error);
+    document.getElementById('total-events').textContent = 'Error';
+    document.getElementById('lessons-completed').textContent = 'Error';
+    document.getElementById('active-users').textContent = 'Error';
+  }
+}
+
+// Load dashboard data on page load
+document.addEventListener('DOMContentLoaded', loadDashboardData);
+</script>
+
+<style>
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.admin-header h1 {
+  margin: 0;
+  color: var(--brand);
+}
+
+.admin-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.dashboard-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+.dashboard-card h3 {
+  margin: 0 0 20px 0;
+  color: var(--brand);
+  font-size: 1.25rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 16px;
+  background: rgba(45, 55, 43, 0.05);
+  border-radius: 8px;
+}
+
+.stat-label {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--brand);
+}
+
+.activity-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-date {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.activity-count {
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  background: var(--brand);
+  color: var(--card);
+  border-color: var(--brand);
+  transform: translateY(-1px);
+}
+
+.action-icon {
+  font-size: 20px;
+}
+
+.action-text {
+  font-weight: 500;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: var(--card);
+}
+
+.btn-secondary {
+  background: var(--muted);
+  color: var(--card);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--brand);
+  border: 1px solid var(--brand);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .admin-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+{% endblock %}

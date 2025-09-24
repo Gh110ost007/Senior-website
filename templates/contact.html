@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}{{ t.brand }} — {{ t.nav_contact }}{% endblock %}
+{% block content %}
+<section class="section" aria-labelledby="contact-title">
+  <div class="container">
+    <h1 id="contact-title">{{ t.book_session }}</h1>
+    <p>{{ t.book_prompt }}</p>
+    <form id="booking-form" class="form" aria-describedby="form-help" method="post" action="{{ url_for('book') }}">
+      <div class="form-row">
+        <label for="name">{{ t.label_full_name }}</label>
+        <input id="name" name="name" type="text" required autocomplete="name" />
+      </div>
+      <div class="form-row">
+        <label for="phone">{{ t.label_phone }}</label>
+        <input id="phone" name="phone" type="tel" required inputmode="tel" autocomplete="tel" />
+      </div>
+      <div class="form-row">
+        <label for="email">{{ t.label_email_optional }}</label>
+        <input id="email" name="email" type="email" autocomplete="email" />
+      </div>
+      <div class="form-row">
+        <label for="topic">{{ t.label_what_learn }}</label>
+        <select id="topic" name="topic" required>
+          <option value="" disabled selected>Select a topic</option>
+          {% for tpc in topics %}
+          <option>{{ tpc.title }}</option>
+          {% endfor %}
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="message">{{ t.label_anything_else }}</label>
+        <textarea id="message" name="message" rows="4" placeholder=""></textarea>
+      </div>
+      <p id="form-help" class="form-help">{{ t.privacy_note }}</p>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">{{ t.send_request }}</button>
+        <span id="form-status" role="status" aria-live="polite"></span>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}

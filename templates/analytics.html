@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block title %}Analytics Dashboard - {{ t.brand }}{% endblock %}
+
+{% block meta_desc %}Analytics dashboard for Senior Help website{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>Analytics Dashboard</h1>
+  <p>Website usage analytics and user engagement metrics</p>
+  
+  <div class="analytics-grid">
+    <div class="analytics-card">
+      <h3>Event Counts (Last 7 Days)</h3>
+      <div id="event-counts">
+        <p>Loading...</p>
+      </div>
+    </div>
+    
+    <div class="analytics-card">
+      <h3>Daily Activity (Last 30 Days)</h3>
+      <div id="daily-activity">
+        <p>Loading...</p>
+      </div>
+    </div>
+    
+    <div class="analytics-card">
+      <h3>Progress Statistics</h3>
+      <div id="progress-stats">
+        <p>Loading...</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="analytics-actions">
+    <button onclick="refreshAnalytics()" class="btn btn-primary">Refresh Data</button>
+    <button onclick="exportData()" class="btn btn-secondary">Export CSV</button>
+    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-outline">← Back to Dashboard</a>
+  </div>
+</div>
+
+<script>
+const ADMIN_TOKEN = '{{ admin_token }}';
+
+async function loadAnalytics() {
+  try {
+    const response = await fetch(`/api/analytics?token=${ADMIN_TOKEN}`);
+    const data = await response.json();
+    
+    // Display event counts
+    const eventCountsDiv = document.getElementById('event-counts');
+    if (data.event_counts.length > 0) {
+      eventCountsDiv.innerHTML = data.event_counts.map(item => 
+        `<div class="metric-item">
+          <span class="metric-label">${item.event_type}</span>
+          <span class="metric-value">${item.count}</span>
+        </div>`
+      ).join('');
+    } else {
+      eventCountsDiv.innerHTML = '<p>No events recorded yet</p>';
+    }
+    
+    // Display daily activity
+    const dailyActivityDiv = document.getElementById('daily-activity');
+    if (data.daily_activity.length > 0) {
+      dailyActivityDiv.innerHTML = data.daily_activity.slice(0, 10).map(item => 
+        `<div class="metric-item">
+          <span class="metric-label">${item.date}</span>
+          <span class="metric-value">${item.count} events</span>
+        </div>`
+      ).join('');
+    } else {
+      dailyActivityDiv.innerHTML = '<p>No activity recorded yet</p>';
+    }
+    
+    // Display progress stats
+    const progressStatsDiv = document.getElementById('progress-stats');
+    if (data.progress_stats.length > 0) {
+      progressStatsDiv.innerHTML = data.progress_stats.map(item => 
+        `<div class="metric-item">
+          <span class="metric-label">${item.lesson_id}</span>
+          <span class="metric-value">${item.completed_count} completed</span>
+        </div>`
+      ).join('');
+    } else {
+      progressStatsDiv.innerHTML = '<p>No progress recorded yet</p>';
+    }
+    
+  } catch (error) {
+    console.error('Error loading analytics:', error);
+    document.getElementById('event-counts').innerHTML = '<p>Error loading data</p>';
+  }
+}
+
+function refreshAnalytics() {
+  loadAnalytics();
+}
+
+function exportData() {
+  // CSV export functionality
+  const link = document.createElement('a');
+  link.href = `/api/analytics?token=${ADMIN_TOKEN}&format=csv`;
+  link.download = 'analytics_export.csv';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+// Load analytics on page load
+document.addEventListener('DOMContentLoaded', loadAnalytics);
+</script>
+
+<style>
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.analytics-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.analytics-card h3 {
+  margin: 0 0 16px 0;
+  color: var(--brand);
+  font-size: 1.25rem;
+}
+
+.metric-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.metric-item:last-child {
+  border-bottom: none;
+}
+
+.metric-label {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.metric-value {
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.analytics-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+</style>
+{% endblock %}

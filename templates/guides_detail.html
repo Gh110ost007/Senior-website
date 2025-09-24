@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}{{ t.brand }} — {{ guide.title }}{% endblock %}
+{% block content %}
+<section class="section" aria-labelledby="guide-title">
+  <div class="container">
+    <h1 id="guide-title">{{ guide.title }}</h1>
+    <article class="card">
+      <div class="guide-content">
+        {{ content|safe }}
+      </div>
+    </article>
+  </div>
+</section>
+{% endblock %}

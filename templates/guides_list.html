@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}{{ t.brand }} — Guides{% endblock %}
+{% block content %}
+<section class="section" aria-labelledby="guides-title">
+  <div class="container">
+    <h1 id="guides-title">Guides</h1>
+    <div class="cards two">
+      {% for g in guides %}
+      <article class="card">
+        <h3><a href="{{ url_for('guide_detail', slug=g.slug, lang=lang) }}">{{ g.title }}</a></h3>
+        <p>{{ g.excerpt }}</p>
+        <p style="color: var(--muted); font-size: 0.9em;">{{ g.date }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

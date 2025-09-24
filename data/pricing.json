@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Starter",
+    "price": "₹999",
+    "description": "45‑minute intro session at home",
+    "features": [
+      "Device setup & basics",
+      "Pick one topic",
+      "Follow-up checklist"
+    ]
+  },
+  {
+    "name": "Standard",
+    "price": "₹1,799",
+    "description": "90‑minute session + online follow‑up",
+    "features": [
+      "Two topics",
+      "1 x 20‑min online follow‑up",
+      "Family can join"
+    ]
+  },
+  {
+    "name": "Family Pack",
+    "price": "₹2,499",
+    "description": "Two 60‑minute visits for two people",
+    "features": [
+      "Up to 2 learners",
+      "Custom plan",
+      "Priority support"
+    ]
+  }
+]
