@@ -24,7 +24,7 @@ This inspired me to create a platform that makes technology learning accessible 
 ## Live Demo
 
 **Local Development**: `http://localhost:5000`
-- **Production Deployment**: Coming soon! (Currently in final testing phase)
+- **Production Deployment**: Coming soon
 
 ## Key Features
 
@@ -62,10 +62,11 @@ This inspired me to create a platform that makes technology learning accessible 
 
 ### Frontend
 - **HTML5/CSS3**: Semantic markup and modern styling
-- **JavaScript (ES6+)**: Interactive features and API calls
+- **JavaScript**: Interactive features and API calls
 - **Responsive Design**: Mobile-first CSS with Flexbox/Grid
 - **Accessibility**: ARIA labels, keyboard navigation, screen reader support
 
+<<<<<<< HEAD
 ### Development & Deployment
 - **Docker**: Containerization for consistent deployment
 - **GitHub Actions**: CI/CD pipeline for automated testing
@@ -97,6 +98,8 @@ seniors-website/
 ├── guides/              # Markdown guide articles
 └── instance/            # Database and CSV files
 ```
+=======
+>>>>>>> b5a68f09b07a20da16e2e1c5ca82eed2a8b77e3c
 
 ## Quick Start
 
@@ -124,16 +127,12 @@ seniors-website/
 
 4. **Access the application**
    - Website: `http://localhost:5000`
-   - Admin: `http://localhost:5000/admin/login`
-
-### Admin Access
-- Admin credentials are configured via environment variables
-- Contact the developer for access to the admin dashboard
+   
 
 ## Technical Challenges I Solved
 
 ### **Building a Senior-Friendly Interface**
-The biggest challenge was creating an interface that seniors would actually want to use. I spent time researching accessibility guidelines and testing with actual users. The result is a clean, simple design with large fonts, high contrast, and intuitive navigation.
+The biggest challenge was creating an interface that seniors would actually want to use. I spent time researching accessibility guidelines and testing with actual users(my grandparenta). The result is a clean, simple design with large fonts, high contrast, and intuitive navigation.
 
 ### **Progress Tracking System**
 I wanted users to feel accomplished as they learn. I built a visual progress system that shows completion status for each topic, with satisfying animations when lessons are marked complete. This gamification element keeps users motivated.
@@ -148,7 +147,7 @@ Seniors often use tablets and phones, so I prioritized mobile experience. The en
 I needed a way to track user engagement and manage leads. I built a secure admin panel with analytics, user progress reports, and lead management - all with proper authentication and data protection.
 
 ### **Performance & Accessibility**
-Every page loads quickly, works without JavaScript, and is fully accessible to screen readers. I used semantic HTML, proper ARIA labels, and keyboard navigation throughout.
+Every page loads quickly, works without JavaScript, and is fully accessible to screen readers.
 
 ## Features Demonstration
 
@@ -166,7 +165,9 @@ Every page loads quickly, works without JavaScript, and is fully accessible to s
 - **Mobile-First**: Optimized for smartphones and tablets
 - **Desktop Experience**: Enhanced layout for larger screens
 - **Cross-Browser**: Tested on Chrome, Firefox, Safari, Edge
+  
 
+<<<<<<< HEAD
 ## Development Features
 
 ### Code Quality
@@ -191,6 +192,8 @@ Every page loads quickly, works without JavaScript, and is fully accessible to s
 - **CSS Grid/Flexbox**: Modern layout techniques
 - **ES6+ JavaScript**: Modern JavaScript features
 
+=======
+>>>>>>> b5a68f09b07a20da16e2e1c5ca82eed2a8b77e3c
 ## Upcoming Features (In Development)
 
 ### Phase 2 - Enhanced Learning Experience
@@ -201,7 +204,7 @@ Every page loads quickly, works without JavaScript, and is fully accessible to s
 
 ### Phase 3 - Business Features
 - [ ] **Calendar Integration**: Real-time booking system with availability
-- [ ] **Payment Gateway**: Secure payment processing for premium sessions
+- [ ] **Payment Gateway**: Secure payment processing for sessions
 - [ ] **Email Automation**: Welcome emails, reminders, and follow-ups
 - [ ] **Customer Portal**: Session history and progress reports for users
 
@@ -211,6 +214,7 @@ Every page loads quickly, works without JavaScript, and is fully accessible to s
 - [ ] **Community Forum**: Peer-to-peer learning and support
 - [ ] **Multi-language Support**: Spanish, French, and other languages
 
+<<<<<<< HEAD
 ### Deployment Timeline
 - **Q1 2025**: Production deployment on cloud platform
 - **Q2 2025**: Mobile app development begins
@@ -224,6 +228,8 @@ This project was developed as a portfolio piece demonstrating full-stack develop
 
 This project is open source and available under the [MIT License](LICENSE).
 
+=======
+>>>>>>> b5a68f09b07a20da16e2e1c5ca82eed2a8b77e3c
 ## About Me
 
 Hi! I'm Adi, a passionate developer who believes technology should be accessible to everyone. This project was born from personal experience - watching my grandparents struggle with modern devices and wanting to create a solution that actually works for seniors.
