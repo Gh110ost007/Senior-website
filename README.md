@@ -4,11 +4,13 @@
 
 ![TechEase Hero](static/hero-seniors.jpg)
 
-## 🎯 About This Project
+## About This Project
 
-I built TechEase after seeing how many seniors struggle with modern technology. My grandparents were constantly asking for help with their phones, computers, and streaming services. This inspired me to create a platform that makes technology learning accessible and enjoyable for seniors.
+I built TechEase after a personal experience that many students studying abroad can relate to. While studying in the UK, my grandparents back home wanted to stay connected with me through video calls and messaging, but they didn't know how to use the technology properly. They kept asking me to teach them over the phone, which was frustrating for both of us - they couldn't see what I was doing, and I couldn't be there to help them practice.
 
-**The Problem**: Many seniors feel overwhelmed by technology, leading to social isolation and difficulty staying connected with family.
+This inspired me to create a platform that makes technology learning accessible and enjoyable for seniors, especially those who want to stay connected with family members who live far away.
+
+**The Problem**: Many seniors feel overwhelmed by technology, leading to social isolation and difficulty staying connected with family, especially when family members live in different countries.
 
 **The Solution**: A patient, step-by-step learning platform designed specifically for seniors, with home visits and ongoing support.
 
@@ -19,38 +21,38 @@ I built TechEase after seeing how many seniors struggle with modern technology. 
 - **Bilingual support** - Available in English and Hindi
 - **Progress tracking** - Visual progress indicators to celebrate achievements
 
-## 🚀 Live Demo
+## Live Demo
 
 **Local Development**: `http://localhost:5000`
 - **Production Deployment**: Coming soon! (Currently in final testing phase)
 
-## ✨ Key Features
+## Key Features
 
-### 🎨 User Experience
+### User Experience
 - **Responsive Design**: Mobile-first approach with seamless desktop experience
 - **Accessibility**: Dark/light mode, font size controls, keyboard navigation
 - **Bilingual Support**: Complete English/Hindi translations
 - **Modern UI**: Clean cards, smooth animations, intuitive navigation
 
-### 📚 Learning Management
+### Learning Management
 - **6 Core Topics**: TV/Streaming, Smartphones, Email/OTP, Social Media, Big Picture, Online Safety
 - **Progress Tracking**: Visual progress bars and lesson completion tracking
 - **Interactive Lessons**: Step-by-step guides with mark-as-complete functionality
 - **Guide Articles**: Comprehensive written tutorials
 
-### 💼 Business Features
+### Business Features
 - **Pricing Tiers**: Free, Standard, and Premium plans
 - **Contact Forms**: Lead generation with CSV storage
 - **Testimonials**: Customer feedback carousel
 - **FAQ Section**: Interactive accordion with common questions
 
-### 🔧 Technical Features
+### Technical Features
 - **Admin Dashboard**: Analytics, leads management, progress tracking
 - **Event Analytics**: User behavior tracking and insights
 - **Form Validation**: Client and server-side validation
 - **CSV Export**: Data export functionality for leads and analytics
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Backend
 - **Flask**: Python web framework
@@ -69,7 +71,7 @@ I built TechEase after seeing how many seniors struggle with modern technology. 
 - **GitHub Actions**: CI/CD pipeline for automated testing
 - **Environment Configuration**: Development and production configs
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 seniors-website/
@@ -96,7 +98,7 @@ seniors-website/
 └── instance/            # Database and CSV files
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Python 3.8+
@@ -128,7 +130,7 @@ seniors-website/
 - Admin credentials are configured via environment variables
 - Contact the developer for access to the admin dashboard
 
-## 🛠️ Technical Challenges I Solved
+## Technical Challenges I Solved
 
 ### **Building a Senior-Friendly Interface**
 The biggest challenge was creating an interface that seniors would actually want to use. I spent time researching accessibility guidelines and testing with actual users. The result is a clean, simple design with large fonts, high contrast, and intuitive navigation.
@@ -148,7 +150,7 @@ I needed a way to track user engagement and manage leads. I built a secure admin
 ### **Performance & Accessibility**
 Every page loads quickly, works without JavaScript, and is fully accessible to screen readers. I used semantic HTML, proper ARIA labels, and keyboard navigation throughout.
 
-## 📊 Features Demonstration
+## Features Demonstration
 
 ### Learning Management System
 - **Topic Cards**: Interactive cards showing learning progress
@@ -165,7 +167,7 @@ Every page loads quickly, works without JavaScript, and is fully accessible to s
 - **Desktop Experience**: Enhanced layout for larger screens
 - **Cross-Browser**: Tested on Chrome, Firefox, Safari, Edge
 
-## 🔧 Development Features
+## Development Features
 
 ### Code Quality
 - **Modular Architecture**: Separated concerns with clear file structure
@@ -177,7 +179,7 @@ Every page loads quickly, works without JavaScript, and is fully accessible to s
 - **Efficient Queries**: Optimized database queries
 - **Caching**: Browser caching for static assets
 
-## 🎨 Design Philosophy
+## Design Philosophy
 
 ### User-Centered Design
 - **Senior-Friendly**: Large fonts, clear navigation, simple layouts
@@ -189,7 +191,7 @@ Every page loads quickly, works without JavaScript, and is fully accessible to s
 - **CSS Grid/Flexbox**: Modern layout techniques
 - **ES6+ JavaScript**: Modern JavaScript features
 
-## 🚀 Upcoming Features (In Development)
+## Upcoming Features (In Development)
 
 ### Phase 2 - Enhanced Learning Experience
 - [ ] **Video Tutorials**: Step-by-step video guides for complex topics
@@ -214,15 +216,15 @@ Every page loads quickly, works without JavaScript, and is fully accessible to s
 - **Q2 2025**: Mobile app development begins
 - **Q3 2025**: Advanced features and community features
 
-## 🤝 Contributing
+## Contributing
 
 This project was developed as a portfolio piece demonstrating full-stack development skills. For questions or feedback, please open an issue or contact the developer.
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 👨‍💻 About Me
+## About Me
 
 Hi! I'm Adi, a passionate developer who believes technology should be accessible to everyone. This project was born from personal experience - watching my grandparents struggle with modern devices and wanting to create a solution that actually works for seniors.
 
