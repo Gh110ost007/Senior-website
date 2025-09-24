@@ -66,41 +66,6 @@ This inspired me to create a platform that makes technology learning accessible 
 - **Responsive Design**: Mobile-first CSS with Flexbox/Grid
 - **Accessibility**: ARIA labels, keyboard navigation, screen reader support
 
-<<<<<<< HEAD
-### Development & Deployment
-- **Docker**: Containerization for consistent deployment
-- **GitHub Actions**: CI/CD pipeline for automated testing
-- **Environment Configuration**: Development and production configs
-
-## Project Structure
-
-```
-seniors-website/
-├── app.py                 # Main Flask application
-├── config.py             # Environment configuration
-├── requirements.txt      # Python dependencies
-├── Dockerfile           # Container configuration
-├── .github/workflows/   # CI/CD pipeline
-├── static/              # CSS, JS, images
-│   ├── styles.css       # Main stylesheet
-│   ├── script.js        # Client-side JavaScript
-│   └── hero-seniors.jpg # Hero image
-├── templates/           # Jinja2 templates
-│   ├── base.html        # Base template
-│   ├── index.html       # Homepage
-│   ├── contact.html     # Contact form
-│   └── admin_*.html     # Admin dashboard templates
-├── data/                # JSON content files
-│   ├── i18n_*.json      # Translation files
-│   ├── topics_*.json    # Learning topics
-│   ├── pricing_*.json   # Pricing tiers
-│   └── faqs_*.json      # FAQ content
-├── guides/              # Markdown guide articles
-└── instance/            # Database and CSV files
-```
-=======
->>>>>>> b5a68f09b07a20da16e2e1c5ca82eed2a8b77e3c
-
 ## Quick Start
 
 ### Prerequisites
