@@ -69,73 +69,6 @@ This inspired me to create a platform that makes technology learning accessible 
 - **Responsive Design**: Mobile-first CSS with Flexbox/Grid
 - **Accessibility**: ARIA labels, keyboard navigation, screen reader support
 
-<<<<<<< HEAD
-### Development & Deployment
-- **Docker**: Containerization for consistent deployment
-- **GitHub Actions**: CI/CD pipeline for automated testing
-- **Environment Configuration**: Development and production configs
-
-## Project Structure
-
-```
-seniors-website/
-├── app.py                 # Main Flask application
-├── config.py             # Environment configuration
-├── requirements.txt      # Python dependencies
-├── Dockerfile           # Container configuration
-├── .github/workflows/   # CI/CD pipeline
-├── static/              # CSS, JS, images
-│   ├── styles.css       # Main stylesheet
-│   ├── script.js        # Client-side JavaScript
-│   └── hero-seniors.jpg # Hero image
-├── templates/           # Jinja2 templates
-│   ├── base.html        # Base template
-│   ├── index.html       # Homepage
-│   ├── contact.html     # Contact form
-│   └── admin_*.html     # Admin dashboard templates
-├── data/                # JSON content files
-│   ├── i18n_*.json      # Translation files
-│   ├── topics_*.json    # Learning topics
-│   ├── pricing_*.json   # Pricing tiers
-│   └── faqs_*.json      # FAQ content
-├── guides/              # Markdown guide articles
-└── instance/            # Database and CSV files
-```
-
-=======
->>>>>>> 08a13ffdbe55fc6bffc20fdfcb91a5dfbc54c47f
-## Quick Start
-
-### Prerequisites
-- Python 3.8+
-- pip (Python package manager)
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/seniors-website.git
-   cd seniors-website
-   ```
-
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Run the application**
-   ```bash
-   python app.py
-   ```
-
-4. **Access the application**
-   - Website: `http://localhost:5000`
-   - Admin: `http://localhost:5000/admin/login`
-
-### Admin Access
-- Admin credentials are configured via environment variables
-- Contact the developer for access to the admin dashboard
-
 ## Technical Challenges I Solved
 
 ### **Building a Senior-Friendly Interface**
@@ -173,8 +106,7 @@ Every page loads quickly, works without JavaScript, and is fully accessible to s
 - **Desktop Experience**: Enhanced layout for larger screens
 - **Cross-Browser**: Tested on Chrome, Firefox, Safari, Edge
 
-<<<<<<< HEAD
-## Current Features (MVP)
+## Current Features
 
 ### What's Built Today
 - **Complete Learning Platform**: 6 core topics with interactive progress tracking
@@ -192,7 +124,6 @@ Every page loads quickly, works without JavaScript, and is fully accessible to s
 ## Future Roadmap (Startup Vision)
 =======
 ## Upcoming Features (In Development)
->>>>>>> 08a13ffdbe55fc6bffc20fdfcb91a5dfbc54c47f
 
 ### Phase 2 - Enhanced Learning Experience
 - [ ] **Video Tutorials**: Step-by-step video guides for complex topics
@@ -212,21 +143,6 @@ Every page loads quickly, works without JavaScript, and is fully accessible to s
 - [ ] **Community Forum**: Peer-to-peer learning and support
 - [ ] **Multi-language Support**: Spanish, French, and other languages
 
-<<<<<<< HEAD
-### Deployment Timeline
-- **Q1 2025**: Production deployment on cloud platform
-- **Q2 2025**: Mobile app development begins
-- **Q3 2025**: Advanced features and community features
-
-## Contributing
-
-This project was developed as a portfolio piece demonstrating full-stack development skills. For questions or feedback, please open an issue or contact the developer.
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-=======
->>>>>>> 08a13ffdbe55fc6bffc20fdfcb91a5dfbc54c47f
 ## About Me
 
 Hi! I'm Adi, a passionate developer who believes technology should be accessible to everyone. This project was born from personal experience - watching my grandparents struggle with modern devices and wanting to create a solution that actually works for seniors.
