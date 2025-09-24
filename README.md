@@ -121,7 +121,8 @@ Every page loads quickly, works without JavaScript, and is fully accessible to s
 - **Lead Generation**: Contact form submissions with automated CSV storage
 - **Progress Reports**: Visual analytics showing completion rates per topic
 - **Export Functionality**: CSV downloads for leads, analytics, and user data
-## Future Roadmap (Startup Vision)
+
+## Future Roadmap
 =======
 ## Upcoming Features (In Development)
 
